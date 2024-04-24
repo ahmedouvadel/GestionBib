@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="webjars/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="card">
+    <div class="card-header">List des Films </div>
+    <div class="card-body">
+        <table class="table">
+         <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>YEARS</th>
+            <th>CATEGORY</th>
+              <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="f:${film}">
+            <td th:text="${f.id}"></td>
+            <td th:text="${f.title}"></td>
+            <td th:text="${f.description}"></td>
+            <td th:text="${f.anneea}"></td>
+            <td th:text="${f.categorie.nom}"></td>
+
+            <td>
+                <a onclick="return confirm('Etes vous sur ?')"
+                th:href="@{supprimer(id=${f.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+</body>
+</html>
